@@ -5,4 +5,4 @@ clean:
 	rm -f helloworld
 
 build: helloworld.go clean
-	CGO_ENABLED=0 go build -o helloworld helloworld.go
+	CGO_ENABLED=0 go build -ldflags="-s -w" -o helloworld helloworld.go
