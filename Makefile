@@ -1,6 +1,8 @@
-run: helloworld build
+run: build
 	ansible-playbook -v -M . helloworld.yaml
-clean: helloworld
-	rm helloworld
+
+clean: 
+	rm -f helloworld
+
 build: helloworld.go clean
-	go build -o helloworld helloworld.go
+	CGO_ENABLED=0 go build -o helloworld helloworld.go
