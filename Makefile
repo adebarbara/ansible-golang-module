@@ -1,8 +1,6 @@
-GOOS=linux
-GOARCH=amd64
-
-build: helloworld.go 
-	go build -o helloworld helloworld.go
-
-run: helloworld.go
+run: helloworld build
 	ansible-playbook -v -M . helloworld.yaml
+clean: helloworld
+	rm helloworld
+build: helloworld.go clean
+	go build -o helloworld helloworld.go
